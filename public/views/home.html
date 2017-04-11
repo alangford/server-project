@@ -1,0 +1,32 @@
+<div class="container">
+    <h1>Welcome To <randome-name-direct></randome-name-direct></h1>
+    <h3>Feel free to search for a game <br> or sign up to start adding to your collection.</h3>
+    <h1>Search For A Game!</h1>
+    <form class="row">
+        <input type="text" ng-model="st" placeholder="Search">
+        <button class="btn btn-primary col-sm-12" ng-click="search(st)">Search</button>
+    </form>
+    <div ng-show="loading">
+        <h1>Loading...</h1>
+    </div>
+    <div ng-show="searching">
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Year</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="game in gameslist">
+                        <td ui-sref="singleGame({id: game.$.objectid})">{{game.name}}</td>
+                        <td ui-sref="singleGame({id: game.$.objectid})">{{game.yearpublished[0]}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

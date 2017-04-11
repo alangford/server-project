@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Hello! {{user}}</h1>
+        </div>
+        <div class="col-sm-12" ng-hide="loggedIn">
+
+        </div>
+        <div class="col-sm-12" >
+
+        </div>
+    </div>
+    <div class="col-lg-12" style="margin-top: 1vh" ng-hide="!loggedIn">
+        <input type="text" placeholder="Search By Name..." ng-model="cat">
+    </div>
+    <div class="bigger-collection">
+        <div id="row-collection" style="padding: 2vh 2vw" class="row"  >
+            <div ng-repeat="game in userGames | filter : cat">
+                <a ui-sref="singleGame({id: game.id})">
+
+                        <div class="card-container col-sm-4">
+                            <div class="card">
+                                <div class="side"><img ng-src="{{game.imgurl}}"></div>
+                                <div class="side back"><h3>{{game.name}}</h3></div>
+                            </div>
+                        </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="smaller-slider">
+        <div id="collection-slide">
+            <div ng-repeat="game in userGames | filter : cat">
+                <a ui-sref="singleGame({id: game.id})">
+                    <div class="card-container center">
+                        <div class="card">
+                            <div class="side"><img ng-src="{{game.imgurl}}"></div>
+                            <div class="side back"><h3>{{game.name}}</h3></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

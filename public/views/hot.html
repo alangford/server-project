@@ -1,0 +1,12 @@
+<div class="whats-hot">
+    <h3 style="text-align: center">Whats Hot!</h3>
+        <div id="slider">
+            <div ng-repeat="what in whatsHot">
+            <div style="text-align: center">Rank: {{what.$.rank}}</div>
+                <div style="text-align: center">{{what.name[0].$.value}}</div>
+           <div><a ui-sref="singleGame({id: what.$.id})">
+            <img class="img-responsive center" ng-src="{{what.thumbnail[0].$.value}}">
+            </a></div>
+        </div>
+    </div>
+</div>

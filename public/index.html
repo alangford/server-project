@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Board Game Shelf</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css">
+    <link rel="stylesheet" href="https://cdn.auth0.com/styleguide/core/2.0.0/core.min.css" />
+    <link rel="stylesheet" href="https://cdn.auth0.com/styleguide/components/1.0.0/components.min.css" />
+
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ui-sref="home"><i class="fa fa-home" aria-hidden="true"></i> BGS</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a ui-sref="home" class=""><i class="fa fa-search" aria-hidden="true"></i> Search</a></li>
+                <li><a ui-sref="login" class=""><i class="fa fa-th" aria-hidden="true"></i> Collection</a></li>
+                <li><a ui-sref="contact" class=""><i class="fa fa-address-book" aria-hidden="true"></i> Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" ng-controller="loginCtrl">
+                <li ng-hide="loggedIn"><a href="/auth" class=""><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
+                <li ng-hide="!loggedIn"><a href="/auth/logout" class=""><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid text-center">
+    <div class="row content">
+        <div class="col-sm-10 shelf">
+            <ui-view></ui-view>
+        </div>
+        <div class="col-sm-2 text-left shelf">
+            <hot-direct></hot-direct>
+        </div>
+    </div>
+</div>
+
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
+<script src="https://cdn.jsdelivr.net/angular.youtube-embed/1.7.9/ng-youtube-embed.min.js"></script>
+<script src="js/bundle.js"></script>
+
+</html>

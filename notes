@@ -1,0 +1,83 @@
+SANE stack
+SQL
+Angular
+NODE
+Express
+1foreign key one table that joins with another table
+make a blueprint before you start your project http://blueprints.devmountain.com/ Trollo
+
+
+
+
+solve a problem for a business
+clone an existing and well known online business
+
+
+
+
+baddging Rubric
+
+Required to go on to group project
+1 foreign key
+Full stack
+
+Required to Badge
+70 points required
+Hosting required
+
+Hard Skills
+	Testing
+		Unit Tests	30		Shortest Path:
+		endpoint Tests	20		Full Presentation Points	20
+		E2E Tests	40		Use Less	10
+	Modules/Build tools				Use es6	10
+		3rd Party API	20 per
+		Less/Sass	10		Use gulp	10
+		ES6	10		Responsive	20
+		Grunt/Gulp	10		TOTAL	70
+		Webpack/Browserify	20
+	Frameworks
+	 	React	30
+		Angular 2	40
+		Angular 1.5 Components	10
+		Ionic	30
+		React Native	40
+		Electron	20
+	Planning/Design
+		Domain Registration	10
+		Defined MVP/API	10
+		Responsive	20
+
+	Custom
+		Instructor approves	?
+
+
+
+
+	Techs
+		Stripe	20
+		s3	10
+		Sockets	20
+		D3	20
+		Other?	10-30
+		Custom/Styled Auth0 login form	10
+
+Soft Skills
+	Presentation
+		Mentions Tech	10
+		Uses Time Effectively	10
+
+
+
+
+
+
+
+Awards
+Best Overall		Most shippable
+Most Technical		APIs, algorithms, complex code.
+Best presentation		More focused on who sounded most employable as a dev.  Must be 3 minutes or less
+CSS/Design		Best implementation of a high end design
+Best solution for a business		Best solution for a real business. Cannot win if you are a clone
+
+

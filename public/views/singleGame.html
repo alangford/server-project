@@ -1,0 +1,80 @@
+<div  style="padding: 1vh 1vw">
+    <div class="row">
+        <h1 class="col-sm-12">{{game.name}}</h1>
+        <button class="btn btn-primary col-sm-12" ng-show="loggedIn && !inCollection" ng-click="addToData(game.$.objectid,game.name , game.thumbnail[0],game.description[0],game.yearpublished[0],game.minplayers[0],game.maxplayers[0], game.boardgamecategory)">Add To Your Collection</button>
+        <button class="btn btn-danger col-sm-12" ng-show="loggedIn && inCollection" ng-click="deleteUserGame(game.$.objectid)">Remove From Your Collection</button>
+        <div class="row">
+            <div class="col-sm-6">
+                <img class="singlePageImg" ng-src="{{game.image[0]}}" alt="{{game.thumbnail[0]}}">
+            </div>
+            <div class="col-sm-6">
+                <h3>Latest Review</h3>
+            <ng-youtube-embed
+                    video="videoID"
+                    width="100%"
+                    height="350px"
+                    autoplay="false"
+                    color="white"
+                    disablekb="true"
+                    ivloadpolicy="false"
+                    end="20">
+            </ng-youtube-embed>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Specifications</h3>
+            <div ng-show="avg > 1">Average Rating:  {{avg}}/5</div>
+            <div>Minimum Players:  {{game.minplayers[0]}}</div>
+            <div>Maximum Players:  {{game.maxplayers[0]}}</div>
+            <div>Year Published: {{game.yearpublished[0]}}</div>
+            <div>Playing Time:  {{game.playingtime[0]}} Min</div>
+            <div>{{thereisrules[0]}}</div>
+            <div ng-show="thereisrules[1]"><a target="_blank" href="{{rules}}"><button class="btn btn-primary" >View Rules</button><a/></div>
+        </div>
+        <div class="col-sm-6">
+            <h4>Categories</h4>
+            <ul ng-repeat="cat in game.boardgamecategory">
+                <li style="list-style-type: none">{{cat._}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <h3 ng-show="game.boardgamehonor">Recent Honors</h3>
+            <div ng-repeat="honor in game.boardgamehonor">
+                <div>{{honor._}}</div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <h3>Description</h3>
+            <p>{{game.description[0]}}</p>
+        </div>
+    </div>
+    <div class="row" ng-show="loggedIn">
+       <form>
+           <h3>Write a review here!</h3>
+           <p class="col-sm-6">Rating: {{stars}}</p>
+           <input  class="col-sm-6" type="range" ng-model="stars" min="0" max="5">
+           <textarea style="height: 20vh; width: 80vw; margin-top: 1vh" class="col-sm-12" placeholder="Write a Review here..."  ng-model="review"></textarea>
+           <input style="margin-top: 1vh" class="btn btn-primary col-sm-6" type="reset">
+           <input style="margin-top: 1vh" type="submit" class="btn btn-primary col-sm-6" ng-click="addReview(game.$.objectid,review,stars)">
+       </form>
+    </div>
+    <div class="row">
+        <div ng-repeat="item in reviews">
+            <div class="col-sm-6">
+                <h3>{{item.username}}</h3>
+                <p>Rating: {{item.stars}}</p>
+                <p>{{item.review}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
