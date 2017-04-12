@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <h1>Welcome To <randome-name-direct></randome-name-direct></h1>
     <h3>Feel free to search for a game <br> or sign up to start adding to your collection.</h3>
     <h1>Search For A Game!</h1>
@@ -14,10 +14,6 @@
             <div class="col-sm-12">
                 <table class="table table-hover">
                     <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Year</th>
-                    </tr>
                     </thead>
                     <tbody>
                     <tr ng-repeat="game in gameslist">
@@ -28,5 +24,12 @@
                 </table>
             </div>
         </div>
+    </div>
+    <div class="row">
+        <h3>Click a category go to a random boardgame based on my recommendations.</h3>
+        <button class="btn btn-primary col-sm-6" ng-click="randomGame('Adventure')">Adventure</button>
+        <button class="btn btn-primary col-sm-6" ng-click="randomGame('Co-operative')">Co-operative</button>
+        <button class="btn btn-primary col-sm-6" ng-click="randomGame('Family')">Family</button>
+        <button class="btn btn-primary col-sm-6" ng-click="randomGame('Strategy')">Strategy</button>
     </div>
 </div>

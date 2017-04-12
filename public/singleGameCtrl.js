@@ -67,7 +67,8 @@ angular.module(`app`).controller(`singleGameCtrl`,function($scope, mainService, 
 
     $scope.addReview = (objectid,review,stars) =>{
             if(review.length > 10){
-                mainService.addReviews(objectid,review,stars).then(()=> {
+                let time = moment().format(`MMMM Do YYYY, h:mm:ss a`);
+                mainService.addReviews(objectid,review,stars,time).then(()=> {
                     mainService.getReviews(objectid).then(re => {
                         let totalReview = 0;
                         for(let i=0;i<re.data.length;i++){
@@ -75,6 +76,7 @@ angular.module(`app`).controller(`singleGameCtrl`,function($scope, mainService, 
                         }
                         $scope.review = ``;
                         $scope.avg = totalReview / re.data.length;
+                        console.log(re.data)
                         $scope.reviews = re.data;
                     })
                 })

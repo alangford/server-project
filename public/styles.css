@@ -65,7 +65,7 @@
 }
 
 
-class for imput fields
+/*class for imput fields*/
 input[type=text] {
     width: 130px;
     -webkit-transition: width 0.4s ease-in-out;

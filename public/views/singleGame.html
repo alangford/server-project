@@ -58,15 +58,16 @@
            <p class="col-sm-6">Rating: {{stars}}</p>
            <input  class="col-sm-6" type="range" ng-model="stars" min="0" max="5">
            <textarea style="height: 20vh; width: 80vw; margin-top: 1vh" class="col-sm-12" placeholder="Write a Review here..."  ng-model="review"></textarea>
-           <input style="margin-top: 1vh" class="btn btn-primary col-sm-6" type="reset">
            <input style="margin-top: 1vh" type="submit" class="btn btn-primary col-sm-6" ng-click="addReview(game.$.objectid,review,stars)">
+           <input style="margin-top: 1vh" class="btn btn-primary col-sm-6" type="reset">
        </form>
     </div>
     <div class="row">
         <div ng-repeat="item in reviews">
             <div class="col-sm-6">
                 <h3>{{item.username}}</h3>
-                <p>Rating: {{item.stars}}</p>
+                <h4>{{item.date}}</h4>
+                <p>Rating: {{item.stars}}/5</p>
                 <p>{{item.review}}</p>
             </div>
         </div>

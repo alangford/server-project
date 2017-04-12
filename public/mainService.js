@@ -10,6 +10,13 @@ angular.module(`app`).service(`mainService`, function($http){
         })
     };
 
+    this.getRandomGame = category =>{
+        return $http({
+            method:`GET`,
+            url:`/randomGame/${category}`
+        })
+    }
+
     this.getWhatsHot = () =>{
         return $http({
             method:`GET`,
@@ -94,11 +101,11 @@ angular.module(`app`).service(`mainService`, function($http){
         })
     };
 
-    this.addReviews = (objectid,review,stars)=>{
+    this.addReviews = (objectid,review,stars,time)=>{
       return $http({
           method:`POST`,
           url:`/user/reviews`,
-          data:{objectid,review,stars}
+          data:{objectid,review,stars,time}
       })
     };
     this.getReviews = objectid =>{
@@ -118,7 +125,7 @@ angular.module(`app`).service(`mainService`, function($http){
                 return res.data;
             })
             .catch(function(err) {
-                console.log(err);
+
             })
     };
 
@@ -131,7 +138,7 @@ angular.module(`app`).service(`mainService`, function($http){
                 return res.data;
             })
             .catch(function(err) {
-                console.log(err);
+
             })
     }
 });

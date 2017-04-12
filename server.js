@@ -33,6 +33,13 @@ app.use(passport.session());
 
 app.use(express.static(`public`));
 
+const getRandomIntInclusive = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+
 passport.use(new Auth0Strategy({
         domain:       config.auth0.domain,
         clientID:     config.auth0.clientID,
@@ -108,6 +115,16 @@ app.post(`/charge`, (req,res,next)=>{
 
     });
     res.redirect((`/#!/paymentSuccess`))
+});
+
+app.get(`/randomGame/:category`,(req,res,next)=>{
+    db.run(`SELECT * FROM recomend
+where category = $1`,[req.params.category],(err,re)=>{
+    if(re){
+        res.status(200).json(re)
+    }
+        else res.status(403).send(err)
+    })
 });
 
 app.get(`/randomName`,(req,res,next)=>{
@@ -196,8 +213,8 @@ app.get(`/games/gamelist`,(req,res,next)=>{
 });
 
 app.post(`/user/reviews`,(req,res,next)=>{
-   db.run(`INSERT INTO reviews(username, userid, gameid, review, stars)
-    VALUES ($1, $2, $3, $4, $5);`, [req.user.username, req.user.userid,req.body.objectid,req.body.review,req.body.stars],(err, re)=>{
+   db.run(`INSERT INTO reviews(username, userid, gameid, review, stars, date)
+    VALUES ($1, $2, $3, $4, $5, $6);`, [req.user.username, req.user.userid,req.body.objectid,req.body.review,req.body.stars, req.body.time],(err, re)=>{
        if(err)res.status(403).send(err)
        else res.status(200).send(`ok`)
 
@@ -205,7 +222,7 @@ app.post(`/user/reviews`,(req,res,next)=>{
 });
 
 app.get(`/user/reviews/:id`,(req,res,next)=>{
-    db.run(`SELECT username, review, stars FROM reviews
+    db.run(`SELECT username, review, stars,date FROM reviews
 where gameid = $1 `,[req.params.id],(err,re)=>{
         if(err)res.status(403).send(err);
         else res.status(200).json(re);

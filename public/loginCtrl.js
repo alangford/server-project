@@ -11,8 +11,8 @@ angular.module(`app`).controller(`loginCtrl`, function($scope, mainService, $sta
                     $(document).ready(function(){
                         $('#collection-slide').slick({
                             draggable:true,
-                            slidesToShow: 5,
-                            slidesToScroll: 1,
+                            slidesToShow: 0,
+                            slidesToScroll: 0,
                             autoplay: true,
                             autoplaySpeed: 1500,
                             prevArrow:`<br>`,

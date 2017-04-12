@@ -17,7 +17,7 @@ gulp.task('build-js', [], function() {
         .pipe(print())
         .pipe(babel({ presets: ['es2015'] }))
         .pipe(concat('bundle.js'))
-        // .pipe(uglify())
+        .pipe(uglify({ mangle: false }))
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('./public/js'));
 });
