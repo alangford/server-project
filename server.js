@@ -17,8 +17,6 @@ const stripe = require(`stripe`)(config.stripe);
 const massiveInstance = massive.connectSync({connectionString : config.connectionString});
 
 
-
-
 app.set("db", massiveInstance);
 const db = app.get(`db`);
 app.use(bodyParser.json());
@@ -248,6 +246,6 @@ app.get(`/games/gamebyid/review/:id`,(req,res,next)=>{
 
 
 
-app.listen(3001, () =>{
-   console.log('Wow Listning on 3001!')
+app.listen(3000, () =>{
+   console.log('Wow Listning on 3000!')
 });
