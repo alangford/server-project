@@ -7,6 +7,7 @@ install: true
 before_install:
 - sudo apt-get install -y python-pip
 - sudo pip install awscli
-- if [[ "$TRAVIS_BRANCH" = "master" ]] ; then docker build --build-arg NODE_ENV=Prod -t bgs . ; fi
+- docker build  -t bgs .
 script:
-- if [ $TRAVIS_TEST_RESULT -eq 0 ]; then BRANCH=$TRAVIS_BRANCH IMAGE=bgs COMMIT=$TRAVIS_COMMIT bin/ecs-deploy/push-and-deploy.sh; fi
+- BRANCH=$TRAVIS_BRANCH IMAGE=bgs COMMIT=$TRAVIS_COMMIT bin/ecs-deploy/push-and-deploy.sh
+
