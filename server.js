@@ -42,7 +42,7 @@ passport.use(new Auth0Strategy({
         domain:       config.auth0.domain,
         clientID:     config.auth0.clientID,
         clientSecret: config.auth0.clientSecret,
-        callbackURL:  '/auth/callback'
+        callbackURL:  'https://www.boardgameshelf.net/auth/callback'
     },
     function(accessToken, refreshToken, extraParams, profile, done) {
         db.getUserByAuthId([profile.id], function(err, user) {
