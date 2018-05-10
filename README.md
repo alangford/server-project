@@ -66,7 +66,7 @@ Once pushed to production it will update the task definition and update the serv
 
 ## Authors
 
-* **Andrew Langford** - *initial work* - [GitHub Link](https://github.com/bolty2142)
+* **Andrew Langford** - *initial work* - [GitHub Link](https://github.com/alangford)
 
-See also the list of [contributors](https://github.com/bolty2142/server-project/graphs/contributors) who participated in this project
+See also the list of [contributors](https://github.com/alangford/server-project/graphs/contributors) who participated in this project
 
